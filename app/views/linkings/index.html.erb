@@ -1,0 +1,23 @@
+<h1>Links</h1>
+
+<% @linkings.each do |linking| %>
+  <%= link_to linking.link.title, linking.url %>
+  <%# binding.pry%>
+  <%= link_to "Delete",
+            user_linking_path(current_user, linking),
+            method: :delete,
+            data: {confirm: "Are you sure you want to delete this link?"} %>
+
+<% end %>
+
+<%= @linking.errors.full_messages.join(", ") %>
+
+<div class="container">
+  <%= form_for [current_user, @linking] do |f| %>
+  <%=  f.collection_select(:link_id, Link.all, :id, :title)%>
+
+  <%= f.text_field :url %>
+
+  <%= f.submit %>
+  <% end %>
+</div>
