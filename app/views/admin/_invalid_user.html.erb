@@ -1,7 +1,13 @@
 <li id="<%= dom_id(user) %>">
   <p>Student: <%= user.full_name %>, email: <%= user.email %> <span class="legit_user">  <%= link_to fa_icon("check"),
+<<<<<<< 8b84148abd831826823a1af97db8c17907bd2b64
             user_path(user, "user[legit]" => true),
             remote: true,
             method: :patch %></span></p>
+=======
+            user_path(user,"user[legit]" => true),
+            remote: true,
+            method: :delete %></span></p>
+>>>>>>> Rebuild Admin controller due to typo
 
 </li>

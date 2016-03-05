@@ -11,13 +11,21 @@ Rails.application.routes.draw do
     resources :projects, only: [:new, :create, :edit, :update, :destroy]
     resources :links, only: [:create, :destroy]
     resources :linkings, only: [:index, :create, :destroy]
+<<<<<<< 8b84148abd831826823a1af97db8c17907bd2b64
     resources :contacts, only: [:new, :create]
+=======
+
+>>>>>>> Rebuild Admin controller due to typo
   end
 
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end
+<<<<<<< 8b84148abd831826823a1af97db8c17907bd2b64
   resources :admin, only: [:index]
+=======
+  resources :administrators, only: [:index]
+>>>>>>> Rebuild Admin controller due to typo
   # TO DO
   # everything else
   resources :password_resets
