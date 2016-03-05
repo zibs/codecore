@@ -5,3 +5,17 @@
     Available
   <% end %>
 </h1>
+
+<% @users.each do |user| %>
+  <div>
+    <div>
+      <% if user.image? %>
+        <%= image_tag user.image_url  %>
+      <% end %>
+    </div>
+    <%= user.full_name %>
+  </div>
+<% end %>
+
+
+<%= paginate @users %>
