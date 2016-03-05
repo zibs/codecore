@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def index
     if params[:who] == "all"
-      @users = User.all.where(hidden: false).page(params[:page]).per(4)
+      @users = User.where(hidden: false).page(params[:page]).per(4)
     else
       @users = User.where(available: true, hidden: false).page(params[:page]).per(4)
     end
