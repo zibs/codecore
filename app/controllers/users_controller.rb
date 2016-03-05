@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user, except: [:new, :create, :update]
 
 
+
   def new
     @user = User.new
   end
@@ -21,6 +22,16 @@ class UsersController < ApplicationController
 
   def show
 
+  end
+
+  def index
+    if params[:who] == "all"
+      @users = User.where(hidden: false).page(params[:page]).per(4)
+      @title = "All"
+    else
+      @users = User.where(available: true, hidden: false).page(params[:page]).per(4)
+      @title = "Available"
+    end
   end
 
   def edit
