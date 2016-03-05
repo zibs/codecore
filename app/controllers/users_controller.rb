@@ -27,12 +27,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    respond_to do |format|
     if @user.update(user_params)
-      redirect_to root_path, flash: { info:  "User Updated" }
+      if tuser_params[:legit].present?
+          format.js { render :edit_task_success}
+        else
+          format.html { redirect_to root_path, flash: { info:  "User Updated" }}
+      end
     else
       flash[:danger] = "nope"
-      render :edit
+      format.html { render :edit }
     end
+  end
   end
 
   # def edit_password

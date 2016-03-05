@@ -1,4 +1,5 @@
 class LinkingsController < ApplicationController
+  
   def index
     @linkings = current_user.linkings
     @linking = Linking.new

@@ -11,12 +11,12 @@ Rails.application.routes.draw do
     resources :links, only: [:create, :destroy]
     resources :linkings, only: [:index, :create, :destroy]
 
-
   end
 
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end
+  resources :administrators, only: [:index]
   # TO DO
   # everything else
 
