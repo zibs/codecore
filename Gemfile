@@ -57,6 +57,8 @@ gem 'simple_form'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
+gem 'bootstrap-sass'
+
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 3.4.2'
