@@ -1,60 +1,13 @@
-<h1>Profile Page</h1>
-<conatiner>
-  <div>
-    <%= simple_form_for @user do |f| %>
-    <%= f.input :first_name, placeholder: "Eli.." %>
-    <%= f.input :last_name, placeholder: "Captain..." %>
-    <%= f.input :email %>
-    <hr>
-    <%= f.submit %>
-    <% end %>
-  </div>
-</container>
+<h1>Basic Information (edit)</h1>
 
-<conatiner>
-  <div>
-    <%= simple_form_for @skill do |f| %>
-    <%= f.input :first_name, placeholder: "Eli.." %>
-    <%= f.input :last_name, placeholder: "Captain..." %>
-    <%= f.input :email %>
-    <hr>
-    <%= f.submit %>
-    <% end %>
-  </div>
-</container>
-
-<conatiner>
-  <div>
-    <%= simple_form_for @project do |f| %>
-    <%= f.input :title %>
+<div class="container">
+  <%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
+    <%= f.input :first_name  %>
+    <%= f.input :last_name %>
     <%= f.input :description %>
-    <%= f.input :url %>
-    <hr>
-    <%= f.submit %>
-    <% end %>
-  </div>
-</container>
-
-<conatiner>
-  <div>
-    <%= simple_form_for @education do |f| %>
-    <%= f.input :first_name, placeholder: "Eli.." %>
-    <%= f.input :last_name, placeholder: "Captain..." %>
-    <%= f.input :email %>
-    <hr>
-    <%= f.submit %>
-    <% end %>
-  </div>
-</container>
-
-<conatiner>
-  <div>
-    <%= simple_form_for @experience do |f| %>
-    <%= f.input :first_name, placeholder: "Eli.." %>
-    <%= f.input :last_name, placeholder: "Captain..." %>
-    <%= f.input :email %>
-    <hr>
-    <%= f.submit %>
-    <% end %>
-  </div>
-</container>
+    <%= f.input_field :available, as: :boolean, boolean_style: :inline %>
+    <strong>I'm available for work</strong>
+    <%= f.input :image, as: :file %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

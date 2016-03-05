@@ -1,14 +1,26 @@
 Rails.application.routes.draw do
   root "welcome#index"
 
-  resources :users
+  resources :users do
+
+
+    resources :educations, only: [:new, :create, :edit, :update, :destroy]
+    resources :experiences, only: [:new, :create, :edit, :update, :destroy]
+    resources :skills, only: [:new, :create, :edit, :update, :destroy]
+    resources :projects, only: [:new, :create, :edit, :update, :destroy]
+    resources :links, only: [:create, :destroy]
+    resources :linkings, only: [:index, :create, :destroy]
+
+
+  end
+
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end
   # TO DO
   # everything else
 
-
+match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

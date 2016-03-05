@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy, :update_password]
+  before_action :authenticate_user, except: [:new]
+
 
   def new
     @user = User.new
@@ -9,11 +11,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
+      UsersMailer.notify_user_on_signup(@user).deliver_later
       redirect_to root_path, flash: { success:  "User created" }
     else
       flash[:danger] = "User not created"
       render :new
     end
+  end
+
+  def show
+
   end
 
   def edit
@@ -45,7 +52,7 @@ class UsersController < ApplicationController
     private
 
       def user_params
-        params.require(:user).permit([:first_name, :last_name, :email, :password, :password_confirmation, :current_password])
+        params.require(:user).permit([:first_name, :last_name, :email, :password, :password_confirmation, :current_password, :description, :image, :available])
       end
 
       def find_user
