@@ -25,9 +25,9 @@ class UsersController < ApplicationController
 
   def index
     if params[:who] == "all"
-      @users = User.all
+      @users = User.all.where(hidden: false)
     else
-      @users = User.where(available: true)
+      @users = User.where(available: true, hidden: false)
     end
   end
 
