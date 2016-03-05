@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   resources :users
+  
+  resources :educations, only: [:new, :create, :edit, :update, :destroy]
+  resources :experiences, only: [:new, :create, :edit, :update, :destroy]
+  resources :skills, only: [:new, :create, :edit, :update, :destroy]
+  resources :projects, only: [:new, :create, :edit, :update, :destroy]
+
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
   end

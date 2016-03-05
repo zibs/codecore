@@ -1,0 +1,28 @@
+<%= @education.errors.full_messages.join(", ") %>
+
+<%= form_for @education do |f| %>
+  <div>
+    <%= f.label :institution %>
+    <%= f.text_field :institution %>
+  </div>
+  <div>
+    <%= f.label :program %>
+    <%= f.text_field :program %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :start_date %>
+    <%= f.date_field :start_date %>
+  </div>
+  <div>
+    <%= f.label :end_date %>
+    <%= f.date_field :end_date %>
+  </div>
+  <div>
+    <%= f.label :url %>
+    <%= f.url_field :url %>
+  </div>
+<% end %>
