@@ -1,0 +1,2 @@
+module AdministatorsHelper
+end

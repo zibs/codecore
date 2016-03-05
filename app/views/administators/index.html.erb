@@ -1,0 +1,15 @@
+<h1>Validate Users</h1>
+
+<% if @invalid_users %>
+<ul>
+  <% @invalid_users.each do |user|  %>
+  <li id="<%= dom_id(user) %>">
+
+    <p>Student:<%= user.full_name %>, Email: <%= user.email %> <span class="validate_user"><%= link_to fa_icon("check"),
+            user_path(user, "user[legit]" => true),
+            # remote: true,
+            method: :patch %></span></p>
+  </li>
+  <% end %>
+</ul>
+<% end %>
