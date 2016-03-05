@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :links, through: :linkings
 
   mount_uploader :image, ImageUploader
-
+  mount_uploader :resume, ResumeUploader
 
 
   VALID_EMAIL_REGEX = /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
