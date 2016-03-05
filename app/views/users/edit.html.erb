@@ -26,9 +26,9 @@
 <conatiner>
   <div>
     <%= simple_form_for @project do |f| %>
-    <%= f.input :first_name, placeholder: "Eli.." %>
-    <%= f.input :last_name, placeholder: "Captain..." %>
-    <%= f.input :email %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :url %>
     <hr>
     <%= f.submit %>
     <% end %>
