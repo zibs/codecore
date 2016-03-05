@@ -1,7 +1,7 @@
 <li id="<%= dom_id(user) %>">
   <p>Student: <%= user.full_name %>, email: <%= user.email %> <span class="legit_user">  <%= link_to fa_icon("check"),
-            user_path(user,"user[legit]" => true),
+            user_path(user, "user[legit]" => true),
             remote: true,
-            method: :delete %></span></p>
+            method: :patch %></span></p>
 
 </li>

@@ -1,0 +1,8 @@
+<h1>Validate Alumni</h1>
+<% if @invalid_users %>
+<ul>
+  <% @invalid_users.each do |user| %>
+    <%= render "invalid_user", user: user %>
+  <% end %>
+</ul>
+<% end %>
