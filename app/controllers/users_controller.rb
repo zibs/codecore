@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
+      UsersMailer.notify_user_on_signup(@user).deliver_later
       redirect_to root_path, flash: { success:  "User created" }
     else
       flash[:danger] = "User not created"
