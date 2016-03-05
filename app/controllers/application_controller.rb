@@ -20,5 +20,9 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     redirect_to new_session_path, flash: {info: "Please sign in :) " } unless user_signed_in?
   end
-  
+
+  def authenticate_admin
+    redirect_to root_path, flash: { info: "Page Not Available" } unless current_user.present? && current_user.admin
+  end
+
 end
