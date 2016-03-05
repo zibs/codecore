@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy, :update_password]
-  before_action :authenticate_user, except: [:new]
+  before_action :authenticate_user, except: [:new, :create, :update]
 
 
   def new
@@ -27,12 +27,18 @@ class UsersController < ApplicationController
   end
 
   def update
+    respond_to do |format|
     if @user.update(user_params)
-      redirect_to root_path, flash: { info:  "User Updated" }
+      if user_params[:legit].present?
+          format.js { render :legitimate_user}
+        else
+          format.html { redirect_to root_path, flash: { info:  "User Updated" }}
+      end
     else
       flash[:danger] = "nope"
-      render :edit
+      format.html { render :edit }
     end
+  end
   end
 
   # def edit_password
@@ -51,7 +57,7 @@ class UsersController < ApplicationController
     private
 
       def user_params
-        params.require(:user).permit([:first_name, :last_name, :email, :password, :password_confirmation, :current_password, :description, :image, :available])
+        params.require(:user).permit([:first_name, :last_name, :email, :password, :password_confirmation, :current_password, :description, :image, :available, :legit])
       end
 
       def find_user
