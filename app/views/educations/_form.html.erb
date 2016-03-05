@@ -1,6 +1,6 @@
 <%= @education.errors.full_messages.join(", ") %>
 
-<%= form_for @education do |f| %>
+<%= form_for [current_user, @education] do |f| %>
   <div>
     <%= f.label :institution %>
     <%= f.text_field :institution %>

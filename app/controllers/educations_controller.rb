@@ -9,8 +9,6 @@ class EducationsController < ApplicationController
 
   def create
     @education = Education.new education_params
-    #**********needs to take in params[:user_id] if admins can edit user's info*********
-    #@education.user = params.user
     @education.user = current_user
     if @education.save
       redirect_to current_user, notice: "New education successfully added."
@@ -20,7 +18,6 @@ class EducationsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -30,7 +27,7 @@ class EducationsController < ApplicationController
 
   def destroy
     @education.destroy
-    redirect_to current_user notice: "Education deleted."
+    redirect_to current_user, notice: "Education deleted."
   end
 
 
