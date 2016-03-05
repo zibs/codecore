@@ -1,0 +1,8 @@
+<h1>Create an Account</h1>
+
+<%= simple_form_for @q do |f| %>
+  <%= f.input :title, placeholder: "at least 3 characters.." %>
+  <%= f.input :body, hint: "put details for the question" %>
+  <%= f.association :tags, as: :check_boxes %>
+  <%= f.submit({class: "btn btn-primary"}) %>
+<% end %>
