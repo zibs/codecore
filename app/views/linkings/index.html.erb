@@ -2,8 +2,9 @@
 
 <% @linkings.each do |linking| %>
   <%= link_to linking.link.title, linking.url %>
+  <%# binding.pry%>
   <%= link_to "Delete",
-            users_links_path(linking),
+            user_linking_path(current_user, linking),
             method: :delete,
             data: {confirm: "Are you sure you want to delete this link?"} %>
 
@@ -12,7 +13,7 @@
 <%= @linking.errors.full_messages.join(", ") %>
 
 <div class="container">
-  <%= simple_form_for @linking do |f| %>
+  <%= form_for [current_user, @linking] do |f| %>
   <%=  f.collection_select(:link_id, Link.all, :id, :title)%>
 
   <%= f.text_field :url %>
