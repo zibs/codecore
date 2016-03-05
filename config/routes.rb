@@ -12,10 +12,6 @@ Rails.application.routes.draw do
     resources :linkings, only: [:index, :create, :destroy]
 
 
-
-  end
-
-
   end
 
   resources :sessions, only: [:new, :create] do
