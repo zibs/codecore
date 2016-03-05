@@ -23,6 +23,14 @@ class UsersController < ApplicationController
 
   end
 
+  def index
+    if params[:who] == "all"
+      @users = User.all
+    else
+      @users = User.where(available: true)
+    end
+  end
+
   def edit
   end
 

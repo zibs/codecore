@@ -1,0 +1,7 @@
+<h1>
+  <% if @users.order(:available).first.available == false %>
+    All
+  <% else %>
+    Available
+  <% end %>
+</h1>
