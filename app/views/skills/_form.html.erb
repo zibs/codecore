@@ -1,0 +1,15 @@
+<%= @skill.errors.full_messages.join(", ") %>
+
+<%= form_for [current_user, @skill] do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :level %>
+    <%= f.number_field :level, in: 1..10, step: 1 %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
