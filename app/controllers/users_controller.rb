@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @skill = Skill.new
   end
 
   def update
