@@ -2,10 +2,15 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   resources :users do
+
     resources :educations, only: [:new, :create, :edit, :update, :destroy]
     resources :experiences, only: [:new, :create, :edit, :update, :destroy]
     resources :skills, only: [:new, :create, :edit, :update, :destroy]
     resources :projects, only: [:new, :create, :edit, :update, :destroy]
+    resources :links, only: [:create, :destroy]
+  end
+
+
   end
 
   resources :sessions, only: [:new, :create] do
