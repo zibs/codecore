@@ -3,5 +3,5 @@ class Experience < ActiveRecord::Base
 
   validates :title, presence: true
   validates :company, presence: true
-
+  validates :user_id, presence: true
 end

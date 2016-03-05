@@ -3,5 +3,5 @@ class Education < ActiveRecord::Base
 
   validates :institution, presence: true
   validates :program, presence: true
-  
+  validates :user_id, presence: true
 end

@@ -3,5 +3,5 @@ class Skill < ActiveRecord::Base
 
   validates :title, presence: true
   validates :level, numericality: { greater_than: 0, less_than_or_equal_to: 10 }
-
+  validates :user_id, presence: true
 end
