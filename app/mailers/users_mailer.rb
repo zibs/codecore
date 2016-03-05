@@ -1,4 +1,4 @@
-class UserMailer < ApplicationMailer
+class UsersMailer < ApplicationMailer
 
   def notify_user_on_signup(user)
     @user = user
