@@ -11,7 +11,7 @@ class Ability
     #   else
     #     can :read, :all
     #   end
-#comment
+#comment2
     can :manage, Education do |education|
       education.user == user
     end
