@@ -1,3 +1,10 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.activated {
+  display: initial
+}
+.hidden {
+  // display: none;
+}

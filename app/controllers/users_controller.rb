@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @skill = Skill.new 
     @projects = current_user.projects
   end
 
