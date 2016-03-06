@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  before_validation :downcase_email
+
   validates :password, length: { minimum: 5 }, on: :create
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -42,6 +44,13 @@ before_create { generate_token(:auth_token) }
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
+  end
+
+
+private
+
+  def downcase_email
+    self.email = self.email.downcase if self.email.present?
   end
 
 end
