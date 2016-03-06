@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :projects, only: [:new, :create, :edit, :update, :destroy]
     resources :links, only: [:create, :destroy]
     resources :linkings, only: [:index, :create, :destroy]
-
+    resources :contacts, only: [:new, :create]
   end
 
   resources :sessions, only: [:new, :create] do

@@ -6,14 +6,13 @@ end
 def create
   user = User.find_by(email: params[:session][:email])
   if user && user.authenticate(params[:session][:password])
-    # session[:user_id] = user.id
     sign_in(user)
     redirect_to(root_path, flash: { success: "Signed in :)"})
   else
     flash[:danger] = "Wrong credentials!"
     render :new
   end
-  # render json: params
+
 end
 
 def destroy
