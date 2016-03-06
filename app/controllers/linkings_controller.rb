@@ -12,10 +12,10 @@ class LinkingsController < ApplicationController
       if @linking.save
         #format.html { render json: params}
         format.html { redirect_to user_linkings_path, notice: "Link created!" }
-        format.js   { render :success_linking }
+        format.js   { render :create_success }
       else
         format.html { redirect_to user_linkings_path, alert: "Error: Link was not created." }
-        format.js { render :fail_linking }
+        format.js { render :create_fail }
       end
 
     end
