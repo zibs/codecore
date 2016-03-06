@@ -19,9 +19,27 @@
   }
   .progress {
     font-size: 1.25em;
-    width: 60%;
+    width: 50%;
     display: inline-block;
     margin-bottom: 0;
     margin-top: 3px;
+  }
+}
+.user-project-display {
+  .user-project-image {
+    float: left
+  }
+  .github-project-link {
+    float: right;
+  }
+}
+li {
+  list-style-type: none;
+}
+
+ul.nav.nav-pills {
+  display: inline-block;
+  li {
+    margin: 25px 45px;
   }
 }

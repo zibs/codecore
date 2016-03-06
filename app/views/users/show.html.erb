@@ -1,6 +1,6 @@
 <section class="container">
   <div class="row">
-    <div class="col-md-10 col-sm-6 col-xs-12">
+    <div class="col-md-10 col-md-offset-1 col-sm-6 col-xs-12">
       <%= image_tag(@user.image.url(:medium), class: "img-responsive profile-picture-show") %>
       <h1><%= @user.full_name %></h1>
       <div class="row">
@@ -31,7 +31,11 @@
   </div>
   <%# TAB PANEL %>
   <div class = "row">
-    <%= render "users/nav_show" %>
+    <section class="col-md-8 col-md-offset-2 text-center">
+      <%= render "users/nav_show" %>
+    </section>
+  </div>
+  <div class="row">
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="skills-show">
         <% @skills.each do |skill| %>
@@ -54,6 +58,7 @@
         <% end %>
       </div>
     </div>
+
   <!-- end of tab panel -->
   </div>
 <!-- end container -->
