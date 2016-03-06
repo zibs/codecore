@@ -1,15 +1,18 @@
 class EducationsController < ApplicationController
   before_action :authenticate_user
   before_action :find_education, only: [:edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
 
   def new
-    @education = Education.new
+    @education = Education.new(user_id: params[:user_id])
+    authorize_user
   end
 
   def create
     @education = Education.new education_params
     @education.user = current_user
+    authorize_user
     respond_to do |format|
     if @education.save
       format.html {redirect_to current_user, notice: "New education successfully added."}
@@ -54,5 +57,9 @@ class EducationsController < ApplicationController
     params.require(:education).permit(:start_date, :end_date, :institution, :program,
                                       :url, :image, :description)
   end
-
+  def authorize_user
+    unless can? :manage, @education
+      redirect_to root_path, alert: "access denied!"
+    end
+  end
 end

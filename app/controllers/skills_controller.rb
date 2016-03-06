@@ -1,14 +1,17 @@
 class SkillsController < ApplicationController
   before_action :authenticate_user
   before_action :find_skill, only: [:edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
   def new
-    @skill = Skill.new
+    @skill = Skill.new(user_id: params[:user_id])
+    authorize_user
   end
 
   def create
     @skill = Skill.new skill_params
     @skill.user = current_user
+    authorize_user
     @user = current_user
     respond_to do |format|
       if @skill.save
@@ -59,4 +62,9 @@ class SkillsController < ApplicationController
     params.require(:skill).permit(:title, :level)
   end
 
+  def authorize_user
+    unless can? :manage, @skill
+      redirect_to root_path, alert: "access denied!"
+    end
+  end
 end
