@@ -11,11 +11,11 @@ class Ability
     #   else
     #     can :read, :all
     #   end
-
+#comment2
     can :manage, Education do |education|
       education.user == user
     end
-    can :manage, Projects do |project|
+    can :manage, Project do |project|
       project.user == user
     end
     can :manage, Experience do |experience|
@@ -24,7 +24,9 @@ class Ability
     can :manage, Skill do |skill|
       skill.user == user
     end
-#comment
+    can :manage, User do |usr|
+      usr == user
+    end
 
 
     # The first argument to `can` is the action you are giving the user

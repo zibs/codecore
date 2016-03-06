@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update, :destroy, :update_password]
   before_action :authenticate_user, except: [:new, :create, :update]
+  before_action :find_user, only: [:show, :edit, :update, :destroy, :update_password]
+  before_action :authorize_user, only: [:new, :create, :edit, :update, :destroy]
 
 
 
@@ -79,13 +80,20 @@ class UsersController < ApplicationController
 
     private
 
-      def user_params
-        params.require(:user).permit([:first_name, :last_name, :email, :password,
-                                      :password_confirmation, :current_password,
-                                      :description, :image, :available, :legit])
-      end
+  def user_params
+    params.require(:user).permit([:first_name, :last_name, :email, :password,
+                                  :password_confirmation, :current_password,
+                                  :description, :image, :available, :legit])
+  end
 
-      def find_user
-        @user = User.find(params[:id])
-      end
+  def find_user
+    @user = User.find(params[:id])
+  end
+
+  def authorize_user
+    unless can? :manage, @user
+      redirect_to root_path, alert: "access denied!"
+    end
+  end
+
 end
