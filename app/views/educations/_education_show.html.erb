@@ -1,8 +1,12 @@
 <div id="<%= dom_id(education) %>">
-  <li><%= education.institution %></li>
-  <li><%= education.program %></li>
-  <li><%= education.description%></li>
-  <li><%= education.start_date%></li>
-  <li><%= education.end_date%></li>
-  <li><%= education.url%></li>
+  <div>
+    <% if education.image?%>
+      <%= image_tag education.image.url :thumb %>
+    <% end %>
+  </div>
+  <h3><%= education.institution %></h3>
+  <%= education.start_date%> <%= education.end_date%>
+  <h4><%= education.program %></h4>
+  <p><%= education.description%></p>
+  <%= link_to "Visit School", education.url, class: 'btn btn-primary text-right ', style: "float: right" %>
 </div>
