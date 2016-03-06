@@ -319,6 +319,7 @@ GEM
       trollop
     rdoc (4.2.2)
       json (~> 1.4)
+    remotipart (1.2.1)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -422,6 +423,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.2.5.1)
   rails_12factor
+  remotipart (~> 1.2)
   rspec-rails (~> 3.4.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

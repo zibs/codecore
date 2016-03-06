@@ -58,6 +58,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'bootstrap-sass'
+gem 'remotipart', '~> 1.2'
 
 group :development, :test do
   gem 'pry'
