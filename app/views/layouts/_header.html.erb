@@ -10,6 +10,11 @@
   <% end %>
 </div>
 
+<div class='nav navbar-left'>
+  <%= link_to "Available Students", users_path(who: "available") %>
+  <%= link_to "All Students", users_path(who: "all") %>
+</div>
+
 <% if notice %>
   <div class="alert alert-success">
     <%= notice %>
