@@ -6,7 +6,7 @@
   <div id="basic-form" class = "toggler-wrap user-form activated">
     <%= render "users/form_basic" %>
   </div>
-  
+
   <div id="skills-form" class = "toggler-wrap">
     <h3>add skill</h3>
     <ul id = "skills_looper">
@@ -33,9 +33,6 @@
     <hr>
   </div>
 
-
-<%= render "/educations/form" %>
-
 <div class="education_listing">
   <% if @educations != nil %>
     <ul>
@@ -44,5 +41,9 @@
       <% end %>
     </ul>
   <% end %>
+  <div id="render-education-form">
+    <%= render "educations/form" %>
+  </div>
 </div>
+
 </div>

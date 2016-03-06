@@ -19,7 +19,7 @@ class EducationsController < ApplicationController
       format.js {render :create_success}
     else
       format.html {render :new, alert: "Education creation failed."}
-      format.js {render :create_fail}
+      format.js {render :create_failure}
     end
     end
   end

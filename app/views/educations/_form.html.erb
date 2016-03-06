@@ -1,4 +1,8 @@
-<div class="container" id ="education_form">
+<div class="container" id="<%= dom_id(@education) %>">
+
+  <% if @education.errors.any? %>
+    <%= @education.errors.full_messages.join(", ") %>
+  <% end %>
 
   <%= form_for [current_user, @education], remote: true do |f| %>
     <div>
