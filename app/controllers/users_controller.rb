@@ -35,13 +35,17 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @skill = Skill.new 
+    @skill = Skill.new
     @projects = current_user.projects
+    @education = Education.new
+    @educations = current_user.educations
   end
 
   def update
+    @education = Education.new
+    @educations = current_user.educations
+
     respond_to do |format|
-<<<<<<< 8b84148abd831826823a1af97db8c17907bd2b64
       if @user.update(user_params)
         if user_params[:legit].present?
           UsersMailer.notify_user_on_validation(@user).deliver_later
@@ -56,21 +60,9 @@ class UsersController < ApplicationController
           render :edit
          }
          format.js  { render :create_failure }
+        end
       end
-=======
-    if @user.update(user_params)
-      if tuser_params[:legit].present?
-          format.js { render :edit_task_success}
-        else
-          format.html { redirect_to root_path, flash: { info:  "User Updated" }}
-      end
-    else
-      flash[:danger] = "nope"
-      format.html { render :edit }
->>>>>>> Rebuild Admin controller due to typo
     end
-  end
-  end
 
   # def edit_password
   #   @user = User.find(params[:id])

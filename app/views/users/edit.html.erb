@@ -24,4 +24,16 @@
 
   </div>
 
+
+<%= render "/educations/form" %>
+
+<div class="education_listing">
+  <% if @educations != nil %>
+    <ul>
+      <% @educations.each do |education| %>
+        <%= render "/educations/listing_education", education: education %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
 </div>
