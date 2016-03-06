@@ -9,7 +9,6 @@
        <%= @user.description %>
     </div>
 
-
       <% @user.linkings.each do |linking| %>
         <%= link_to fa_icon(linking.show_icon(linking.link.title)), linking.url %>
       <% end %>
@@ -18,8 +17,31 @@
 
       <span class="btn btn-default"><%= link_to "Contact", root_path%> </span>
 
-
-
+    </div>
+  </div>
+</div>
+<div>
+  <%= render "users/nav_show" %>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="skills-show">
+      <% @skills.each do |skill| %>
+        <%= render "/skills/skill", skill: skill %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="projects-show">
+      <% @projects.each do |project| %>
+        <%= render "/projects/project", project: project %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="education-show">
+      <% @educations.each do |education| %>
+        <%= render "/educations/listing_education", education: education %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="experience-show">
+      <% @experiences.each do |experience| %>
+        <%= render "/experiences/experience", experience: experience %>
+      <% end %>
     </div>
   </div>
 

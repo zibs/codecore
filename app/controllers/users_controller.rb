@@ -22,7 +22,14 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @skills = @user.skills
+    @projects = @user.projects
+    @educations = @user.educations
+    @experiences = @user.experiences
+    respond_to do |format|
+      format.html { render }
+      format.json { render json: @user }
+    end
   end
 
   def index
