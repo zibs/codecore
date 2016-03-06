@@ -1,23 +1,15 @@
 <h1>Links</h1>
+<div class="links">
+  <% if @linkings.length > 0 %>
+  <% @linkings.each do |linking| %>
+    <%= render 'linking', linking: linking %>
+  <% end %>
+  <% end %>
+</div>
 
-<% @linkings.each do |linking| %>
-  <%= link_to linking.link.title, linking.url %>
-  <%# binding.pry%>
-  <%= link_to "Delete",
-            user_linking_path(current_user, linking),
-            method: :delete,
-            data: {confirm: "Are you sure you want to delete this link?"} %>
-<br>
-<% end %>
-
+<h2>Add new link</h2>
 <%= @linking.errors.full_messages.join(", ") %>
 
-<div class="container">
-  <%= form_for [current_user, @linking] do |f| %>
-  <%=  f.collection_select(:link_id, Link.all, :id, :title)%>
-
-  <%= f.text_field :url %>
-
-  <%= f.submit %>
-  <% end %>
+<div class="container" id="link-form">
+  <%= render 'form' %>
 </div>

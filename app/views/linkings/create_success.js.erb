@@ -1,0 +1,7 @@
+
+$('.links').prepend("<%= j render 'linking', linking: @linking %>");
+
+
+<% @linking= Linking.new %>
+
+$("#link-form").html("<%= j render 'form' %>");
