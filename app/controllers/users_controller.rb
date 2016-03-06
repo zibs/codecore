@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, except: [:new, :create, :update]
   before_action :find_user, only: [:show, :edit, :update, :destroy, :update_password]
-  before_action :authorize_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:edit, :update, :destroy]
 
 
 
