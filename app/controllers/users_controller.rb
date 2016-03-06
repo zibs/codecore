@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy, :update_password]
   before_action :authorize_user, only: [:edit, :update, :destroy]
 
-
-
   def new
     @user = User.new
   end
