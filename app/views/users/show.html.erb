@@ -5,12 +5,18 @@
     </div>
     <div class="col-md-8 col-sm-6 col-xs-12">
       <h1><%= @user.full_name %></h1>
-    <%= @user.description %>
+    <div class="description">
+       <%= @user.description %>
+    </div>
+
 
       <% @user.linkings.each do |linking| %>
         <%= link_to fa_icon(linking.show_icon(linking.link.title)), linking.url %>
-        <br>
       <% end %>
+
+      <%= link_to fa_icon("download"), user_path(@user) %>
+
+      <span class="btn btn-default"><%= link_to "Contact", root_path%> </span> 
 
 
 
