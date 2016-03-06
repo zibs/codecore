@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :skills, only: [:new, :create, :edit, :update, :destroy]
     resources :projects, only: [:new, :create, :edit, :update, :destroy]
     resources :links, only: [:create, :destroy]
-    resources :linkings, only: [:index, :create, :destroy]
+    resources :linkings, only: [:index, :create, :destroy, :edit, :update] 
     resources :contacts, only: [:new, :create]
   end
 

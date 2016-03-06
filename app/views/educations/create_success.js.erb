@@ -1,1 +1,3 @@
-$(".education_listing").prepend("<%= j render('/educations/listing_education', {education: @education}) %>");
+$("#educations_looper").prepend("<%= j render('/educations/listing_education', {education: @education}) %>");
+<% @education= Education.new %>
+$("#render-education-form").html("<%= j render 'form' %>");

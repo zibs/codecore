@@ -47,8 +47,10 @@ class UsersController < ApplicationController
     @project = Project.new
     @education = Education.new
     @experience = Experience.new
+    @linking = Linking.new
     @projects = current_user.projects
     @educations = current_user.educations
+    @linkings = current_user.linkings
   end
 
   def update
