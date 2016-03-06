@@ -1,6 +1,5 @@
 <div class="container" id ="education_form">
-
-  <%= form_for [current_user, @education], remote: true do |f| %>
+  <%= form_for [current_user, @educations] do |f| %>
     <div>
       <%= f.label :institution %>
       <%= f.text_field :institution %>
@@ -26,7 +25,7 @@
       <%= f.url_field :url %>
     </div>
     <div>
-      <%= f.submit id:"education_edit_submit" %>
+      <%= f.submit %>
     </div>
   <% end %>
 </div>

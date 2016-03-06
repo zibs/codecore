@@ -10,24 +10,37 @@ class EducationsController < ApplicationController
   def create
     @education = Education.new education_params
     @education.user = current_user
+    respond_to do |format|
     if @education.save
-      redirect_to current_user, notice: "New education successfully added."
+      format.html {redirect_to current_user, notice: "New education successfully added."}
+      format.js {render :create_success}
     else
-      render :new, alert: "Education creation failed."
+      format.html {render :new, alert: "Education creation failed."}
+      format.js {render :create_fail}
+    end
     end
   end
 
   def edit
+    respond_to do |format|
+      format.js {render :update}
+    end
   end
 
   def update
     @education.update education_params
-    redirect_to current_user, notice: "Education successfully updated."
+    respond_to do |format|
+    format.html {redirect_to current_user, notice: "Education successfully updated."}
+    format.js {render :update_success}
+    end
   end
 
   def destroy
     @education.destroy
-    redirect_to current_user, notice: "Education deleted."
+    respond_to do |format|
+      format.html {redirect_to current_user, notice: "Education deleted."}
+      format.js {render}
+    end
   end
 
 

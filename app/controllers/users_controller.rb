@@ -35,11 +35,16 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @skill = Skill.new 
+    @skill = Skill.new
     @projects = current_user.projects
+    @education = Education.new
+    @educations = current_user.educations
   end
 
   def update
+    @education = Education.new
+    @educations = current_user.educations
+
     respond_to do |format|
       if @user.update(user_params)
         if user_params[:legit].present?
@@ -55,9 +60,9 @@ class UsersController < ApplicationController
           render :edit
          }
          format.js  { render :create_failure }
+        end
       end
     end
-  end
 
   # def edit_password
   #   @user = User.find(params[:id])

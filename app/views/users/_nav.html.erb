@@ -1,14 +1,14 @@
 <ul class="nav nav-pills" id="user-nav">
-  <li role="presentation">
+  <li role="presentation" id="basic_info_a">
     <%= link_to "Basic Information", edit_user_path(@user), { id: "edit-user-basic-btn" }  %>
   </li>
   <li role="presentation">
     <%= link_to "Links", "#project-form"  %>
   </li>
   <li role="presentation">
-    <%= link_to "Projects", nil  %>
+    <%= link_to "Projects", "#"%>
   </li>
-  <li role="presentation">
+  <li role="presentation" id="education_a">
     <%= link_to "Education", nil  %>
   </li>
   <li role="presentation">
