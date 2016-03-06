@@ -31,9 +31,6 @@ class LinkingsController < ApplicationController
   def update
     @user = current_user
     @linking = Linking.find(params[:id])
-    p ">>>>>>>>>>>>>>>>>>>>>>>>>"
-    p params
-    p ">>>>>>>>>>>>>>>>>>>>>>>>>"
     respond_to do |format|
       if @linking.update(linking_params)
         format.html { redirect_to current_user, notice: "Skill successfully updated." }
