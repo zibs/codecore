@@ -1,9 +1,4 @@
 class LinkingsController < ApplicationController
-<<<<<<< 8b84148abd831826823a1af97db8c17907bd2b64
-
-=======
-  
->>>>>>> Rebuild Admin controller due to typo
   def index
     @linkings = current_user.linkings
     @linking = Linking.new
