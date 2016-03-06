@@ -1,12 +1,11 @@
 <div id="<%= dom_id(linking)%>">
   <%= fa_icon(linking.show_icon(linking.link.title)) %>
   <%= link_to linking.url, linking.url %>
-  <span class="btn btn-warning">
-    <%= link_to "X",
-    user_linking_path(current_user, linking),
-    method: :delete,
-    remote: true,
-    data: {confirm: "Are you sure you want to delete this link?"} %>
-  </span>
+  <%= link_to fa_icon("trash-o"),
+  user_linking_path(current_user, linking),
+  method: :delete,
+  remote: true,
+  data: {confirm: "Are you sure you want to delete this link?"},
+  class: "btn btn-warning" %>
   <br>
 </div>
