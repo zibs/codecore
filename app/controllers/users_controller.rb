@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     respond_to do |format|
     if @user.update(user_params)
       if user_params[:legit].present?
+        UsersMailer.notify_user_on_validation(@user).deliver_later
           format.js { render :legitimate_user}
         else
           format.html { redirect_to root_path, flash: { info:  "User Updated" }}
