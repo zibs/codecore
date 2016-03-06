@@ -1,6 +1,8 @@
-<li id="<%= dom_id(experience) %>">
-  <h5><%= experience.title %></h5>
-  <p><%= experience.description %></p>
-  <p><%= experience.company %></p>
-  <!-- image tag to come... -->
-</li>
+<section class="col-md-8 col-md-offset-2">
+  <li id="<%= dom_id(experience) %>">
+    <h5><%= experience.title %></h5>
+    <h4><%= experience.company %></h4>
+    <p><%= experience.description %></p>
+    <%= link_to "#{experience.title}", "#{experience.url}", class: "user-show-experience-link" %>
+  </li>
+</section>

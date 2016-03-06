@@ -3,8 +3,6 @@ class UsersController < ApplicationController
   before_action :find_user, only: [:show, :edit, :update, :destroy, :update_password]
   before_action :authorize_user, only: [:edit, :update, :destroy]
 
-
-
   def new
     @user = User.new
   end
@@ -61,8 +59,8 @@ class UsersController < ApplicationController
           UsersMailer.notify_user_on_validation(@user).deliver_later
           format.js { render :legitimate_user}
         else
-          format.html { redirect_to root_path, flash: { info:  "User Updated" }}
-          format.js { render :create_success }
+          format.html { redirect_to user_path(@user), flash: { info:  "User Updated" }}
+          # format.js { render :create_success }
         end
       else
         format.html{

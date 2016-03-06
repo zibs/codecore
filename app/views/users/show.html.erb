@@ -1,53 +1,65 @@
-<div class="container">
+<section class="container">
   <div class="row">
-    <div class="col-md-4 col-sm-6 col-xs-12">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </div>
-    <div class="col-md-8 col-sm-6 col-xs-12">
+    <div class="col-md-10 col-md-offset-1 col-sm-6 col-xs-12">
+      <%= image_tag(@user.image.url(:medium), class: "img-responsive profile-picture-show") %>
       <h1><%= @user.full_name %></h1>
-    <div class="description">
-       <%= @user.description %>
+      <div class="row">
+        <div class="user-description col-md-6 col-sm-6 col-xs-12">
+          <%= @user.description %>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <div class="user-links">
+            <% @user.linkings.each do |linking| %>
+              <%= link_to fa_icon(linking.show_icon(linking.link.title)), linking.url, class: "fa-2x" %>
+            <% end %>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6 user-contact-edit">
+            <%= link_to fa_icon("download"), user_path(@user) %>
+            <%= link_to "Contact", new_user_contact_path(@user), class: "btn btn-default" %>
+            <% if can? :manage, @user %>
+            <%= link_to "Edit", edit_user_path(@user), class: "btn btn-default" %>
+            <% end %>
+          </div>
+        </div>
+        <!-- end inner row -->
+      </div>
+      <!-- end cols for first row -->
     </div>
-
-      <% @user.linkings.each do |linking| %>
-        <%= link_to fa_icon(linking.show_icon(linking.link.title)), linking.url %>
-      <% end %>
-
-      <%= link_to fa_icon("download"), user_path(@user) %>
-
-      <span class="btn btn-default"><%= link_to "Contact", root_path %> </span>
-      <% if can? :manage, @user %>
-        <span class="btn btn-default"><%= link_to "Edit", edit_user_path(@user) %> </span>
-      <% end %>
-    </div>
-
+<!-- end first outer row -->
   </div>
-</div>
-
-<%# TAB PANEL %>
-<div class='container'>
-  <%= render "users/nav_show" %>
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="skills-show">
-      <% @skills.each do |skill| %>
-        <%= render "/skills/skill_show", skill: skill %>
-      <% end %>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="projects-show">
-      <% @projects.each do |project| %>
-        <%= render "/projects/project_show", project: project %>
-      <% end %>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="education-show">
-      <% @educations.each do |education| %>
-        <%= render "/educations/education_show", education: education %>
-      <% end %>
-    </div>
-    <div role="tabpanel" class="tab-pane" id="experience-show">
-      <% @experiences.each do |experience| %>
-        <%= render "/experiences/experience_show", experience: experience %>
-      <% end %>
-    </div>
+  <%# TAB PANEL %>
+  <div class = "row">
+    <section class="col-md-8 col-md-offset-2 text-center">
+      <%= render "users/nav_show" %>
+    </section>
   </div>
+  <div class="row">
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="skills-show">
+        <% @skills.each do |skill| %>
+          <%= render "/skills/skill_show", skill: skill %>
+        <% end %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="projects-show">
+        <% @projects.each do |project| %>
+          <%= render "/projects/project_show", project: project %>
+        <% end %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="education-show">
+        <% @educations.each do |education| %>
+          <%= render "/educations/education_show", education: education %>
+        <% end %>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="experience-show">
+        <% @experiences.each do |experience| %>
+          <%= render "/experiences/experience_show", experience: experience %>
+        <% end %>
+      </div>
+    </div>
 
-</div>
+  <!-- end of tab panel -->
+  </div>
+<!-- end container -->
+</section>

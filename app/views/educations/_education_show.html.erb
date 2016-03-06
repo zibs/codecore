@@ -1,12 +1,11 @@
-<div id="<%= dom_id(education) %>">
-  <div>
-    <% if education.image?%>
-      <%= image_tag education.image.url :thumb %>
-    <% end %>
+<section class="col-md-8 col-md-offset-2">
+  <div id="<%= dom_id(education) %>">
+    <%# image_tag(education.image.url(:thumb), class: "user-education-image") %>
+    <h4><strong><%= education.institution %></strong></h4>
+    <h5><%= education.program %></h5>
+    <p><%= education.description%></p>
+    <p class = "text-muted"><%= education.start_date%></li>
+    <p class = "text-muted"><%= education.end_date%></li>
+    <%# link_to "" %>
   </div>
-  <h3><%= education.institution %></h3>
-  <%= education.start_date%> <%= education.end_date%>
-  <h4><%= education.program %></h4>
-  <p><%= education.description%></p>
-  <%= link_to "Visit School", education.url, class: 'btn btn-primary text-right ', style: "float: right" %>
-</div>
+</section>
