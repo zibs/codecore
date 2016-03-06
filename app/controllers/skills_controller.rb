@@ -41,7 +41,6 @@ class SkillsController < ApplicationController
         format.js { render :update_skill_failure }
       end
     end
-
   end
 
   def destroy

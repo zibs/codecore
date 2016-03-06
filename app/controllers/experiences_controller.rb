@@ -12,24 +12,43 @@ class ExperiencesController < ApplicationController
     @experience = Experience.new experience_params
     @experience.user = current_user
     authorize_user
-    if @experience.save
-      redirect_to current_user, notice: "New experience successfully added."
-    else
-      render :new, alert: "Experience creation failed."
+    @user = current_user
+    respond_to do |format|
+      if @experience.save
+        format.html { redirect_to current_user, notice: "New Experience successfully added." }
+        format.js { render :experience_create_success }
+      else
+        format.html { render :new, alert: "Experience creation failed." }
+        format.js { render :experience_create_failure }
+      end
     end
   end
 
   def edit
+    @user = current_user
+    respond_to do |format|
+      format.js { render :edit_experience }
+    end
   end
 
   def update
-    @experience.update experience_params
-    redirect_to current_user, notice: "Experience successfully updated."
+    @user = current_user
+    respond_to do |format|
+      if @experience.update(experience_params)
+        format.html { redirect_to current_user, notice: "Experience successfully updated." }
+        format.js { render :update_experience_success }
+      else
+        format.js { render :update_experience_failure }
+      end
+    end
   end
 
   def destroy
-    @experience.destroy
-    redirect_to current_user, notice: "Experience deleted."
+    respond_to do |format|
+      @experience.destroy
+      format.html { redirect_to current_user, notice: "Experience deleted." }
+      format.js { render }
+    end
   end
 
 

@@ -1,0 +1,9 @@
+$("#experiences_looper").prepend("<%= j render 'experiences/experience', experience: @experience %>")
+<% @experience = Experience.new %>
+$("#render-experience-form").html("<%= j render 'form' %>")
+
+// $("#project_title").val("");
+// $("#project_description").val("");
+// $("#project_url").val("");
+// $("#project_github").val("");
+// $("#project_image").val("");
