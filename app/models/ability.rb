@@ -24,7 +24,7 @@ class Ability
     can :manage, Skill do |skill|
       skill.user == user
     end
-
+#comment
 
 
     # The first argument to `can` is the action you are giving the user
