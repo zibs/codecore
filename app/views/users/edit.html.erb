@@ -2,11 +2,26 @@
 
 <%= render "users/nav" %>
 
-<div class="container" class="user-form">
-  <div id="basic-form">
+<div class="container">
+  <div id="basic-form" class = "toggler-wrap user-form activated">
     <%= render "users/form_basic" %>
   </div>
-  <div id="project-form">
+  <div id="project-form" class = "toggler-wrap hidden">
     <%= render "users/projects" %>
   </div>
+
+  <div id="skills-form" class = "toggler-wrap">
+
+    <ul id = "skills_looper">
+      <% @user.skills.each do |skill| %>
+        <%= render "skills/skill", skill: skill %>
+      <% end %>
+    </ul>
+
+    <div id="render-skill-form">
+      <%= render "skills/form" %>
+    </div>
+
+  </div>
+
 </div>

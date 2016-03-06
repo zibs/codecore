@@ -9,26 +9,45 @@ class SkillsController < ApplicationController
   def create
     @skill = Skill.new skill_params
     @skill.user = current_user
-    if @skill.save
-      redirect_to current_user, notice: "New skill successfully added."
-    else
-      render :new, alert: "Skill creation failed."
+    @user = current_user
+    respond_to do |format|
+      if @skill.save
+        format.html { redirect_to current_user, notice: "New skill successfully added." }
+        format.js { render :skill_create_success }
+      else
+        format.html { render :new, alert: "Skill creation failed." }
+        format.js { render :skill_create_failure }
+      end
     end
   end
 
   def edit
+    @user = current_user
+    respond_to do |format|
+      format.js { render :edit_skill }
+    end
   end
 
   def update
-    @skill.update skill_params
-    redirect_to current_user, notice: "Skill successfully updated."
+    @user = current_user
+    respond_to do |format|
+      if @skill.update(skill_params)
+        format.html { redirect_to current_user, notice: "Skill successfully updated." }
+        format.js { render :update_skill_success }
+      else
+        format.js { render :update_skill_failure }
+      end
+    end
+
   end
 
   def destroy
-    @skill.destroy
-    redirect_to current_user, notice: "Skill deleted."
+    respond_to do |format|
+      @skill.destroy
+      format.html { redirect_to current_user, notice: "Skill deleted." }
+      format.js { render }
+    end
   end
-
 
   private
 
