@@ -1,7 +1,7 @@
 <div id="<%= dom_id(linking)%>">
   <%= fa_icon(linking.show_icon(linking.link.title)) %>
   <%= link_to linking.url, linking.url %>
-  <%= link_to "X",
+  <%= link_to fa_icon("trash-o"),
   user_linking_path(current_user, linking),
   method: :delete,
   remote: true,
