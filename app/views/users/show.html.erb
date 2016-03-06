@@ -9,17 +9,44 @@
        <%= @user.description %>
     </div>
 
-
       <% @user.linkings.each do |linking| %>
         <%= link_to fa_icon(linking.show_icon(linking.link.title)), linking.url %>
       <% end %>
 
       <%= link_to fa_icon("download"), user_path(@user) %>
 
-      <span class="btn btn-default"><%= link_to "Contact", root_path%> </span>
+      <span class="btn btn-default"><%= link_to "Contact", root_path %> </span>
+      <% if can? :manage, @user %>
+        <span class="btn btn-default"><%= link_to "Edit", edit_user_path(@user) %> </span>
+      <% end %>
+    </div>
 
+  </div>
+</div>
 
-
+<%# TAB PANEL %>
+<div>
+  <%= render "users/nav_show" %>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="skills-show">
+      <% @skills.each do |skill| %>
+        <%= render "/skills/skill_show", skill: skill %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="projects-show">
+      <% @projects.each do |project| %>
+        <%= render "/projects/project_show", project: project %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="education-show">
+      <% @educations.each do |education| %>
+        <%= render "/educations/education_show", education: education %>
+      <% end %>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="experience-show">
+      <% @experiences.each do |experience| %>
+        <%= render "/experiences/experience_show", experience: experience %>
+      <% end %>
     </div>
   </div>
 
