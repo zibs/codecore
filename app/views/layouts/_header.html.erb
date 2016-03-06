@@ -10,7 +10,10 @@
   <% end %>
 </div>
 
-<div class='nav navbar-left'>
+<div class='nav navbar-default'>
+  <div style='background-color: #CB0D0F'>
+    <%= image_tag 'codecore-logo.png' %>
+  </div>
   <%= link_to "Available Students", users_path(who: "available") %>
   <%= link_to "All Students", users_path(who: "all") %>
 </div>
