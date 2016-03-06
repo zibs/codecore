@@ -6,6 +6,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+
 .bgimage {
 background-image: image-url('welcome_bg_resized.JPG');
 background-repeat: no-repeat;
@@ -48,4 +49,11 @@ opacity: 0.8;
     &:hover {
       background-color: #840404;
     }
+}
+
+#logo{
+  img{
+    // width:100%;
+    height:100%;
+  }
 }
