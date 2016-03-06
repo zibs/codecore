@@ -1,9 +1,9 @@
-<ul class="nav nav-pills">
+<ul class="nav nav-pills" id="user-nav">
   <li role="presentation">
-    <%= link_to "Basic Information", edit_user_path(@user)  %>
+    <%= link_to "Basic Information", edit_user_path(@user), { id: "edit-user-basic-btn" }  %>
   </li>
   <li role="presentation">
-    <%= link_to "Links", nil  %>
+    <%= link_to "Links", "#project-form"  %>
   </li>
   <li role="presentation">
     <%= link_to "Projects", nil  %>

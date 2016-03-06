@@ -35,22 +35,27 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @projects = current_user.projects
   end
 
   def update
     respond_to do |format|
-    if @user.update(user_params)
-      if user_params[:legit].present?
-        UsersMailer.notify_user_on_validation(@user).deliver_later
+      if @user.update(user_params)
+        if user_params[:legit].present?
+          UsersMailer.notify_user_on_validation(@user).deliver_later
           format.js { render :legitimate_user}
         else
           format.html { redirect_to root_path, flash: { info:  "User Updated" }}
+          format.js { render :create_success }
+        end
+      else
+        format.html{
+          flash[:danger] = "nope"
+          render :edit
+         }
+         format.js  { render :create_failure }
       end
-    else
-      flash[:danger] = "nope"
-      format.html { render :edit }
     end
-  end
   end
 
   # def edit_password

@@ -1,0 +1,13 @@
+<% @projects.each do |project| %>
+
+
+  <p><%= project.title %></p>
+
+  <%= simple_form_for([current_user, project], html: { class: 'form-horizontal' }, remote: true) do |f| %>
+    <%= f.input :title  %>
+    <%= f.input :description %>
+    <%= f.input :url %>
+    <%= f.button :submit %>
+  <% end %>
+
+<% end %>
