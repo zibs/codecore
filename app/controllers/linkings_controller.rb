@@ -1,5 +1,5 @@
 class LinkingsController < ApplicationController
-  
+
   def index
     @linkings = current_user.linkings
     @linking = Linking.new
@@ -11,10 +11,10 @@ class LinkingsController < ApplicationController
     respond_to do |format|
       if @linking.save
         #format.html { render json: params}
-        format.html { redirect_to root_path, notice: "Link created!" }
+        format.html { redirect_to user_linkings_path, notice: "Link created!" }
         format.js   { render :success_linking }
       else
-        format.html { redirect_to user_path(current_user), alert: "Error: Link was not created." }
+        format.html { redirect_to reuser_linkings_path, alert: "Error: Link was not created." }
         format.js { render :fail_linking }
       end
 
