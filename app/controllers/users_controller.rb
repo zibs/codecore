@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     @projects = current_user.projects
     @education = Education.new
     @educations = current_user.educations
+    @experience = Experience.new
   end
 
   def update

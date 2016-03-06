@@ -36,4 +36,17 @@
     </ul>
   <% end %>
 </div>
+
+<%= render "/experiences/form" %>
+
+<div class="expereince_listing">
+  <% if @experiences != nil %>
+    <ul>
+      <% @experiences.each do |experience| %>
+        <%= render "/experiences/listing_experience", experience: experience %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
 </div>
