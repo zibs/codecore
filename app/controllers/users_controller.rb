@@ -12,9 +12,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      sign_in(@user)
+      # sign_in(@user)
       UsersMailer.notify_user_on_signup(@user).deliver_later
-      redirect_to root_path, flash: { success:  "User created" }
+      redirect_to root_path, flash: { success:  "Account created. Login access
+                                          granted after validation by admin." }
     else
       flash[:danger] = "User not created"
       render :new
@@ -26,10 +27,7 @@ class UsersController < ApplicationController
     @projects = @user.projects
     @educations = @user.educations
     @experiences = @user.experiences
-    respond_to do |format|
-      format.html { render }
-      format.json { render json: @user }
-    end
+
   end
 
   def index
