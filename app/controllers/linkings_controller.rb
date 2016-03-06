@@ -14,7 +14,7 @@ class LinkingsController < ApplicationController
         format.html { redirect_to user_linkings_path, notice: "Link created!" }
         format.js   { render :success_linking }
       else
-        format.html { redirect_to reuser_linkings_path, alert: "Error: Link was not created." }
+        format.html { redirect_to user_linkings_path, alert: "Error: Link was not created." }
         format.js { render :fail_linking }
       end
 
