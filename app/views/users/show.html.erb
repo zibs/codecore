@@ -15,7 +15,7 @@
 
       <%= link_to fa_icon("download"), user_path(@user) %>
 
-      <span class="btn btn-default"><%= link_to "Contact", root_path %> </span>
+      <span class="btn btn-default"><%= link_to "Contact", new_user_contact_path(@user) %> </span>
       <% if can? :manage, @user %>
         <span class="btn btn-default"><%= link_to "Edit", edit_user_path(@user) %> </span>
       <% end %>
