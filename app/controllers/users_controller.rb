@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     @skill = Skill.new
     @project = Project.new
     @education = Education.new
+    @experience = Experience.new
     @projects = current_user.projects
     @educations = current_user.educations
   end

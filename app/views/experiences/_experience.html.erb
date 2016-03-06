@@ -1,0 +1,13 @@
+<li id="<%= dom_id(experience) %>">
+  <h5><%= experience.title %></h5>
+  <p><%= experience.description %></p>
+  <p><%= experience.company %></p>
+  <!-- image tag to come... -->
+  <p>
+    <%= link_to "Edit",  edit_user_experience_path(@user, experience), remote: true %>
+    <%= link_to "Delete", [@user, experience],
+                          method: :delete,
+                          remote: true,
+                          data: { confirm: "Are you sure?" } %>
+  </p>
+</li>

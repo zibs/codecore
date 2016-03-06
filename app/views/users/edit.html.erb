@@ -32,6 +32,19 @@
     </div>
     <hr>
   </div>
+  <div id="experiences-form" class = "toggler-wrap">
+    <h3>add experiences</h3>
+    <ul id = "experiences_looper">
+      <% @user.experiences.each do |experience| %>
+        <%= render "experiences/experience", experience: experience %>
+      <% end %>
+    </ul>
+    <div id="render-experience-form">
+      <%= render "experiences/form" %>
+    </div>
+    <hr>
+  </div>
+
 
 <div class="education_listing">
   <% if @educations != nil %>

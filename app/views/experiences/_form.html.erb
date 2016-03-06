@@ -1,6 +1,10 @@
-<%= @experience.errors.full_messages.join(", ") %>
+<section id="<%= dom_id(@experience) %>">
 
-<%= form_for [current_user, @experience] do |f| %>
+  <% if @experience.errors.any? %>
+    <%= @experience.errors.full_messages.join(", ") %>
+  <% end %>
+
+<%= form_for [current_user, @experience], remote: true do |f| %>
   <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -29,3 +33,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</section>
