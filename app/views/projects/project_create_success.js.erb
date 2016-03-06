@@ -1,0 +1,9 @@
+$("#projects_looper").prepend("<%= j render 'projects/project', project: @project %>")
+<% @project = Project.new %>
+$("#render-project-form").html("<%= j render 'form' %>")
+
+$("#project_title").val("");
+$("#project_description").val("");
+$("#project_url").val("");
+$("#project_github").val("");
+$("#project_image").val("");

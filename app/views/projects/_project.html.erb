@@ -1,0 +1,12 @@
+<li id="<%= dom_id(project) %>">
+  <h5><%= project.title %></h5>
+  <p><%= project.description %></p>
+  <!-- image tag to come... -->
+  <p>
+    <%= link_to "Edit",  edit_user_project_path(@user, project), remote: true %>
+    <%= link_to "Delete", [@user, project],
+                          method: :delete,
+                          remote: true,
+                          data: { confirm: "Are you sure?" } %>
+  </p>
+</li>

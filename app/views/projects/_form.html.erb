@@ -1,26 +1,35 @@
-<%= @project.errors.full_messages.join(". ") %>
+<section id="<%= dom_id(@project) %>">
 
-<%= form_for [current_user, @project] do |f| %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-  <div>
-    <%= f.label :url %>
-    <%= f.url_field :url %>
-  </div>
-  <div>
-    <%= f.label :github %>
-    <%= f.url_field :github %>
-  </div>
-  <div>
-    <%= f.file_field :image %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
+  <% if @project.errors.any? %>
+    <%= @project.errors.full_messages.join(", ") %>
+  <% end %>
+
+  <%= form_for [current_user, @project], remote: true do |f| %>
+    <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+    <div>
+      <%= f.label :url %>
+      <%= f.url_field :url %>
+    </div>
+    <div>
+      <%= f.label :github %>
+      <%= f.url_field :github %>
+    </div>
+    <div>
+      <%= f.file_field :image %>
+    </div>
+    <div>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+</section>
