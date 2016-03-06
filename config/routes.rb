@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+
   root "welcome#index"
 
   resources :users do
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   resources :admin, only: [:index]
   # TO DO
   # everything else
+  resources :password_resets
 
 match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.

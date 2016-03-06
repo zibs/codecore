@@ -1,6 +1,8 @@
-<h1><%= @title %></h1>
+<div class='text-center'>
+  <h1><%= @title %></h1>
+</div>
 
-<div class="row">
+<div class="row text-center">
 <% @users.each do |user| %>
   <div class="col-lg-3">
     <div class=''>
@@ -21,4 +23,6 @@
 <% end %>
 </div>
 
-<%= paginate @users %>
+<div class='text-center'>
+  <%= paginate @users %>
+</div>
