@@ -7,6 +7,7 @@ class LinkingsController < ApplicationController
   def create
     @like = Link.find params[:linking][:link_id]
     @linking = Linking.new(user: current_user, link: @like, url: params[:linking][:url])
+    # authorize_user
     respond_to do |format|
       if @linking.save
         #format.html { render json: params}
@@ -28,4 +29,15 @@ class LinkingsController < ApplicationController
       format.js   { render }
     end
   end
+
+  private
+
+  def authorize_user
+    unless can? :manage, @linking
+      flash[:alert] = "access denied!"
+      redirect_to root_path and return
+    end
+  end
+
+
 end
