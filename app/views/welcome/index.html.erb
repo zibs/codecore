@@ -6,8 +6,8 @@
     <div class="col-md-12 bgimage">
       <h1>Welcome to Codecore Alumni Page</h1>
 
-      <span class="btn btn-default"> <%= link_to "Students Available for Hire", users_path(who: "available")  %></span>
-      <span class="btn btn-default"><%= link_to "All Students",  users_path(who: "all") %></span>
+      <%= link_to "Students Available for Hire", users_path(who: "available"), class: "btn btn-primary btn-modification"  %>
+      <%= link_to "All Students",  users_path(who: "all"), class: "btn btn-primary btn-modification" %>
 
 
 

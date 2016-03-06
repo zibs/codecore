@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+body {
+  font-family: 'Open Sans', sans-serif;
+}
 
 .bgimage {
 background-image: image-url('welcome_bg_resized.JPG');
@@ -32,4 +34,17 @@ z-index: 0;
 .navbar-modification {
    margin-bottom: 0px;
 
+}
+
+.btn-modification {
+align
+margin: 10px;
+width: 250px;
+background-color: #cb0d0f;
+border: none;
+padding: 20px;
+opacity: 0.8;
+    &:hover {
+      background-color: #840404;
+    }
 }
