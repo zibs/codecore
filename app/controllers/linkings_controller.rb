@@ -17,7 +17,27 @@ class LinkingsController < ApplicationController
         format.html { redirect_to user_linkings_path, alert: "Error: Link was not created." }
         format.js { render :create_fail }
       end
+    end
+  end
 
+  def edit
+    @user = current_user
+    @linking = Linking.find(params[:id])
+    respond_to do |format|
+      format.js { render :edit_link }
+    end
+  end
+
+  def update
+    @user = current_user
+    @linking = Linking.find(params[:id])
+    respond_to do |format|
+      if @linking.update(linking_params)
+        format.html { redirect_to current_user, notice: "Skill successfully updated." }
+        format.js { render :update_link_success }
+      else
+        format.js { render :update_link_failure }
+      end
     end
   end
 
@@ -37,6 +57,10 @@ class LinkingsController < ApplicationController
       flash[:alert] = "access denied!"
       redirect_to root_path and return
     end
+  end
+
+  def linking_params
+    params.require(:linking).permit(:url, :link_id)
   end
 
 
