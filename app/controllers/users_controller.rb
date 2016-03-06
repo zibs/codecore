@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    find_user
+
   end
 
   def index
