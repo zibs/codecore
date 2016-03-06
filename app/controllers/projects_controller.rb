@@ -12,24 +12,43 @@ class ProjectsController < ApplicationController
     @project = Project.new project_params
     @project.user = current_user
     authorize_user
-    if @project.save
-      redirect_to current_user, notice: "New project successfully added."
-    else
-      render :new, alert: "Project creation failed."
+    @user = current_user
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to current_user, notice: "New Project Successfully Added." }
+        format.js { render :project_create_success }
+      else
+        format.html { render :new, alert: "Project Creation Failed." }
+        format.js { render :project_create_failure }
+      end
     end
   end
 
   def edit
+    @user = current_user
+    respond_to do |format|
+      format.js { render :edit_project }
+    end
   end
 
   def update
-    @project.update project_params
-    redirect_to current_user, notice: "Project successfully updated."
+    @user = current_user
+    respond_to do |format|
+      if @project.update(project_params)
+        format.html { redirect_to current_user, notice: "Project Successfully Updated." }
+        format.js { render :update_project_success }
+      else
+        format.js { render :update_project_failure }
+      end
+    end
   end
 
   def destroy
-    @project.destroy
-    redirect_to current_user, notice: "Project deleted."
+    respond_to do |format|
+      @project.destroy
+      format.html { redirect_to current_user, notice: "Project deleted." }
+      format.js { render }
+    end
   end
 
 

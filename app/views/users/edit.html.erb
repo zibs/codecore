@@ -11,17 +11,29 @@
   </div>
 
   <div id="skills-form" class = "toggler-wrap">
-
+    <h3>add skill</h3>
     <ul id = "skills_looper">
       <% @user.skills.each do |skill| %>
         <%= render "skills/skill", skill: skill %>
       <% end %>
     </ul>
-
     <div id="render-skill-form">
       <%= render "skills/form" %>
     </div>
+    <hr>
+  </div>
 
+  <div id="projects-form" class = "toggler-wrap">
+    <h3>add projects</h3>
+    <ul id = "projects_looper">
+      <% @user.projects.each do |project| %>
+        <%= render "projects/project", project: project %>
+      <% end %>
+    </ul>
+    <div id="render-project-form">
+      <%= render "projects/form" %>
+    </div>
+    <hr>
   </div>
 
 
