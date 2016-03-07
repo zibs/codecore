@@ -1,7 +1,7 @@
-<section id="<%= dom_id(@linking) %>">
-<%= simple_form_for [current_user, @linking], remote: true do |f| %>
-<%=  f.input :link_id, collection: Link.all, prompt: "Select", label: "Social Media" %>
-<%= f.input :url, placeholder: "Enter the complete URL..." %>
-<%= f.submit %>
-<% end %>
-</section>
+<article id="<%= dom_id(@linking) %>">
+  <%= simple_form_for [current_user, @linking], remote: true do |f| %>
+  <%=  f.input :link_id, collection: Link.all, prompt: "Select", label: "Social Media" %>
+  <%= f.input :url, placeholder: "Enter the complete URL..." %>
+  <%= f.submit %>
+  <% end %>
+</article>

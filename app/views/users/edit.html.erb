@@ -1,80 +1,103 @@
-<h1>Basic Information (edit)</h1>
-<%= render "users/nav_edit" %>
-
+<h1 class = "text-center">Edit Information</h1>
+<section class="col-md-10 col-md-offset-1">
+  <%= render "users/nav_edit" %>
+</section>
 <!-- Tab panes -->
+<section class="row">
  <div class="tab-content">
-
    <div role="tabpanel" class="tab-pane active" id="basic-form">
     <%= render "users/form_basic" %>
    </div>
 
    <div role="tabpanel" class="tab-pane" id="skills-form">
-     <h3>add skill</h3>
      <ul id = "skills_looper">
-       <% @user.skills.each do |skill| %>
-         <%= render "skills/skill", skill: skill %>
-       <% end %>
+       <section class="row">
+         <section class="col-md-4 col-md-offset-2">
+           <% @user.skills.each do |skill| %>
+             <%= render "skills/skill", skill: skill %>
+           <% end %>
+          </section>
+         <section class="col-md-4">
+           <div id="render-skill-form">
+             <%= render "skills/form" %>
+           </div>
+          </section>
+       </section>
      </ul>
-     <div id="render-skill-form">
-       <%= render "skills/form" %>
-     </div>
-     <hr>
    </div>
 
    <div role="tabpanel" class="tab-pane" id="projects-form">
-     <h3>add projects</h3>
      <ul id = "projects_looper">
-       <% @user.projects.each do |project| %>
-         <%= render "projects/project", project: project %>
-       <% end %>
-     </ul>
-     <div id="render-project-form">
-       <%= render "projects/form" %>
-     </div>
-     <hr>
+       <section class="row">
+         <section class="col-md-5">
+           <% @user.projects.each do |project| %>
+             <%= render "projects/project", project: project %>
+           <% end %>
+         </section>
+        <section class="col-md-5">
+           <div id="render-project-form">
+             <%= render "projects/form" %>
+           </div>
+        </section>
+      </section>
+       </ul>
    </div>
 
    <div role="tabpanel" class="tab-pane" id="experiences-form">
-     <h3>add experiences</h3>
      <ul id = "experiences_looper">
-       <% @user.experiences.each do |experience| %>
-         <%= render "experiences/experience", experience: experience %>
-       <% end %>
+       <section class="row">
+         <section class="col-md-5">
+           <% @user.experiences.each do |experience| %>
+             <%= render "experiences/experience", experience: experience %>
+           <% end %>
+       </section>
+       <section class="col-md-5">
+         <div id="render-experience-form">
+           <%= render "experiences/form" %>
+         </div>
+       </section>
      </ul>
-     <div id="render-experience-form">
-       <%= render "experiences/form" %>
-     </div>
-     <hr>
    </div>
+
    <div role="tabpanel" class="tab-pane" id="educations-form">
-     <h1>Add Education</h1>
      <% if @educations %>
        <ul id = "educations_looper">
-         <% @educations.each do |education| %>
-           <%= render "/educations/listing_education", education: education %>
-         <% end %>
+         <div class="row">
+          <section class="col-md-5">
+            <h2>Current Schools</h2>
+            <% @educations.each do |education| %>
+            <%= render "/educations/listing_education", education: education %>
+            <% end %>
+          </section>
+          <section class="col-md-5">
+            <div id="render-education-form">
+              <h2>Add Another School</h2>
+              <%= render "educations/form" %>
+            </div>
+          </section>
+         </div>
        </ul>
      <% end %>
-     <div id="render-education-form">
-       <%= render "educations/form" %>
-     </div>
    </div>
 
    <div role="tabpanel" class="tab-pane" id="linkings-form">
-     <h1>Add Links</h1>
      <div class="links">
        <% if @linkings %>
-       <ul>
-         <% @linkings.each do |linking| %>
-           <%= render 'linkings/linking', linking: linking %>
-         <% end %>
-       </ul>
+         <div class="row">
+           <section class="col-md-4 col-md-offset-2">
+             <% @linkings.each do |linking| %>
+               <%= render 'linkings/linking', linking: linking %>
+             <% end %>
+             </section>
+             <section class="col-md-4">
+               <div id="render-links-form">
+                 <%= render "linkings/form" %>
+               </div>
+             </section>
+          </div>
        <% end %>
-     </div>
-     <h2>Add new link</h2>
-     <div id="render-links-form">
-       <%= render "linkings/form" %>
      </div>
    </div>
 
   </div>
+</section>
