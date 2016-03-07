@@ -104,6 +104,15 @@ ActiveRecord::Schema.define(version: 20160307024834) do
 
   add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
+  create_table "simple_captcha_data", force: :cascade do |t|
+    t.string   "key",        limit: 40
+    t.string   "value",      limit: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "simple_captcha_data", ["key"], name: "idx_key", using: :btree
+
   create_table "skills", force: :cascade do |t|
     t.string   "title"
     t.integer  "level"

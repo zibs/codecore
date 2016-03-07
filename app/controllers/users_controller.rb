@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, except: [:new, :create, :update]
+  before_action :authenticate_user, only: [:edit, :update, :destroy]
   before_action :find_user, only: [:show, :edit, :update, :destroy, :update_password]
   before_action :authorize_user, only: [:edit, :update, :destroy]
 
@@ -8,15 +8,20 @@ class UsersController < ApplicationController
   end
 
   def create
+
     @user = User.new(user_params)
-    if @user.save
-      # sign_in(@user)
-      UsersMailer.notify_user_on_signup(@user).deliver_later
-      redirect_to root_path, flash: { success:  "Account created. Login access
-                                          granted after validation by admin." }
+    if simple_captcha_valid?
+      if @user.save
+        # sign_in(@user)
+        UsersMailer.notify_user_on_signup(@user).deliver_later
+        redirect_to root_path, flash: { success:  "Account created. Login access
+                                            granted after validation by admin." }
+      else
+        flash[:danger] = "User not created"
+        render :new
+      end
     else
-      flash[:danger] = "User not created"
-      render :new
+      render :new, alert: "Try again."
     end
   end
 
@@ -90,7 +95,7 @@ class UsersController < ApplicationController
     params.require(:user).permit([:first_name, :last_name, :email, :password,
                                   :password_confirmation, :current_password,
                                   :description, :image, :available, :legit,
-                                  :resume])
+                                  :resume, :captcha, :captcha_key])
   end
 
   def find_user

@@ -355,6 +355,8 @@ GEM
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
     shellany (0.0.1)
+    simple_captcha2 (0.4.0)
+      rails (>= 4.1)
     simple_form (3.2.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -431,6 +433,7 @@ DEPENDENCIES
   rspec-rails (~> 3.4.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  simple_captcha2
   simple_form
   spring
   turbolinks
