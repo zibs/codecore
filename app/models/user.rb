@@ -48,6 +48,14 @@ before_create { generate_token(:auth_token) }
     end while User.exists?(column => self[column])
   end
 
+  def body_snippet
+      if self.description && self.description.length >= 100
+        snippet = "#{self.description[1..100]} ... "
+      else
+        self.description
+      end
+  end
+
 
 private
 
