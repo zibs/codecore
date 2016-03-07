@@ -5,7 +5,6 @@
 <!-- Tab panes -->
 <section class="row">
  <div class="tab-content">
-
    <div role="tabpanel" class="tab-pane active" id="basic-form">
     <%= render "users/form_basic" %>
    </div>
@@ -37,47 +36,65 @@
    </div>
 
    <div role="tabpanel" class="tab-pane" id="experiences-form">
-     <h3>add experiences</h3>
      <ul id = "experiences_looper">
-       <% @user.experiences.each do |experience| %>
-         <%= render "experiences/experience", experience: experience %>
-       <% end %>
+       <section class="row">
+         <section class="col-md-5">
+           <% @user.experiences.each do |experience| %>
+             <%= render "experiences/experience", experience: experience %>
+           <% end %>
+       </section>
+       <section class="col-md-5">
+         <div id="render-experience-form">
+           <%= render "experiences/form" %>
+         </div>
+       </section>
      </ul>
-     <div id="render-experience-form">
-       <%= render "experiences/form" %>
-     </div>
-     <hr>
    </div>
+
+
+
    <div role="tabpanel" class="tab-pane" id="educations-form">
-     <h1>Add Education</h1>
      <% if @educations %>
        <ul id = "educations_looper">
-         <% @educations.each do |education| %>
-           <%= render "/educations/listing_education", education: education %>
-         <% end %>
+         <div class="row">
+          <section class="col-md-5">
+            <h2>Current Schools</h2>
+            <% @educations.each do |education| %>
+            <%= render "/educations/listing_education", education: education %>
+            <% end %>
+          </section>
+          <section class="col-md-5">
+            <div id="render-education-form">
+              <h2>Add Another School</h2>
+              <%= render "educations/form" %>
+            </div>
+          </section>
+         </div>
        </ul>
      <% end %>
-     <div id="render-education-form">
-       <%= render "educations/form" %>
-     </div>
    </div>
 
    <div role="tabpanel" class="tab-pane" id="linkings-form">
-     <h1>Add Links</h1>
      <div class="links">
        <% if @linkings %>
-       <ul>
-         <% @linkings.each do |linking| %>
-           <%= render 'linkings/linking', linking: linking %>
-         <% end %>
-       </ul>
+         <div class="row">
+           <section class="col-md-4 col-md-offset-2">
+             <% @linkings.each do |linking| %>
+               <%= render 'linkings/linking', linking: linking %>
+             <% end %>
+             </section>
+             <section class="col-md-4">
+               <div id="render-links-form">
+                 <%= render "linkings/form" %>
+               </div>
+             </section>
+          </div>
        <% end %>
      </div>
-     <h2>Add new link</h2>
-     <div id="render-links-form">
-       <%= render "linkings/form" %>
-     </div>
    </div>
+
+
+
 
   </div>
 </section>
