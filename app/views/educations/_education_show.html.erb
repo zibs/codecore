@@ -2,10 +2,10 @@
   <div id="<%= dom_id(education) %>">
     <%# image_tag(education.image.url(:thumb), class: "user-education-image") %>
     <h4><strong><%= education.institution %></strong></h4>
-    <h5><%= education.program %></h5>
+    <h4 class=""><%= education.program %> </h4>
+      <p class="text-muted"><%= "#{education.start_date.strftime('%B/%Y')} - #{education.end_date.strftime('%B/%Y')}"  %></p>
     <p><%= education.description%></p>
-    <p class = "text-muted"><%= education.start_date%></li>
-    <p class = "text-muted"><%= education.end_date%></li>
+    <hr>
     <%# link_to "" %>
   </div>
 </section>
