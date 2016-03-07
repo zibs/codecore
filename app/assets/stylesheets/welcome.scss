@@ -247,7 +247,7 @@ footer-col{
 
 .layout_footer {
     text-align:right;
-    font-size: 10px;
+    font-size: 11px;
     float: right;
     bottom:0;
     position:fixed;
@@ -255,4 +255,8 @@ footer-col{
     height: 5em;
     overflow: hidden;
     margin:0 auto;
+    background-color: #f8f8f8;
+    border: #e7e7e7 1px solid;
+    padding-bottom: 0px;
+    margin-bootm: 0px;
 }
