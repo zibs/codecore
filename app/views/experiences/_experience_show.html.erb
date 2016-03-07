@@ -2,11 +2,13 @@
   <section class="row">
     <section class="col-md-6 col-md-offset-2">
       <li id="<%= dom_id(experience) %>">
-        <h5><%= experience.title %></h5>
-        <h4><%= experience.company %></h4>
+        <h4><strong><%= experience.title %></strong>  @ <%= link_to "#{experience.company}", "#{experience.url}", class: "user-show-experience-link" %></h4>
+        <h4></h4>
+        <p class="text-muted"><%= "#{experience.start_date.strftime('%B/%Y')} - #{experience.end_date.strftime('%B/%Y')}"  %></p>
         <p><%= experience.description %></p>
-        <%= link_to "#{experience.title}", "#{experience.url}", class: "user-show-experience-link" %>
+
       </li>
+      <hr>
     </section>
   </section>
 </section>

@@ -22,13 +22,16 @@ links_array = Link.all
   3.times do
     skill = u.skills.create(title: Faker::Lorem.word, level: Faker::Number.between(1, 10))
 
-    project = u.projects.create(title: Faker::Lorem.word, description:  Faker::Lorem.sentences(2), url: Faker::Internet.url)
+    project = u.projects.create(title: Faker::Lorem.word, description:  Faker::Lorem.sentences(2), url: Faker::Internet.url, github: Faker::Internet.url)
 
     education = u.educations.create(start_date: Faker::Date.between(4.years.ago, 3.years.ago), end_date: Faker::Date.between(2.years.ago, 1.years.ago), institution: Faker::Company.name, program: Faker::Lorem.words(4), url: Faker::Internet.url, description: Faker::Lorem.sentences(2) )
 
     experience = u.experiences.create(company: Faker::Company.name, title: Faker::Company.profession, description: Faker::Lorem.sentences(2), url: Faker::Internet.url, start_date: Faker::Date.between(4.years.ago, 3.years.ago), end_date: Faker::Date.between(2.years.ago, 1.years.ago))
 
-    linking = u.linkings.create(link: links_array.sample, url: Faker::Internet.url)
   end
+
+  linking = u.linkings.create(link: links_array[0], url: Faker::Internet.url)
+  linking = u.linkings.create(link: links_array[1], url: Faker::Internet.url)
+  linking = u.linkings.create(link: links_array[2], url: Faker::Internet.url)
 
 end
