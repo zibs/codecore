@@ -33,12 +33,13 @@ class UsersController < ApplicationController
   end
 
   def index
-    if params[:who] == "all"
-      @users = User.where(hidden: false).order("LOWER(last_name)").page(params[:page]).per(6)
-      @title = "All"
-    else
-      @users = User.where(available: true, hidden: false).order("LOWER(last_name)").page(params[:page]).per(6)
+    if params[:who] != "all"
+      @users = User.where(available: true, hidden: false, legit: true).order("LOWER(last_name)").page(params[:page]).per(6)
       @title = "Available"
+    else
+      @users = User.where(hidden: false, legit: true).order("LOWER(last_name)").page(params[:page]).per(6)
+      @title = "All"
+
     end
   end
 

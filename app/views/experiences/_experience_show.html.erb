@@ -4,7 +4,9 @@
       <li id="<%= dom_id(experience) %>">
         <h4><strong><%= experience.title %></strong>  @ <%= link_to "#{experience.company}", "#{experience.url}", class: "user-show-experience-link" %></h4>
         <h4></h4>
-        <p class="text-muted"><%= "#{experience.start_date.strftime('%B/%Y')} - #{experience.end_date.strftime('%B/%Y')}"  %></p>
+        <% if experience.start_date.present? && experience.end_date.present? %>
+          <p class="text-muted"><%= "#{experience.start_date.strftime('%B/%Y')} - #{experience.end_date.strftime('%B/%Y')}"  %></p>
+        <% end %>
         <p><%= experience.description %></p>
 
       </li>

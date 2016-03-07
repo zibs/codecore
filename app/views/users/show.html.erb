@@ -1,7 +1,9 @@
 <section class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1 col-sm-6 col-xs-12">
+      <div>
       <%= image_tag(@user.image.url(:medium), class: "img-responsive profile-picture-show") %>
+      <div>
       <h1 class ="users-name-show"><%= @user.full_name %></h1>
       <div class="row">
         <div class="user-description col-md-6 col-sm-6 col-xs-12">
