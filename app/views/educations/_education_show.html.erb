@@ -3,7 +3,10 @@
     <%# image_tag(education.image.url(:thumb), class: "user-education-image") %>
     <h4><strong><%= education.institution %></strong></h4>
     <h4 class=""><%= education.program %> </h4>
+
+    <% if education.start_date.present? && education.end_date.present?    %>
       <p class="text-muted"><%= "#{education.start_date.strftime('%B/%Y')} - #{education.end_date.strftime('%B/%Y')}"  %></p>
+      <% end %>
     <p><%= education.description%></p>
     <hr>
     <%# link_to "" %>
