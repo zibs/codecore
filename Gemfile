@@ -60,6 +60,7 @@ gem 'mini_magick'
 gem 'fog'
 gem 'bootstrap-sass'
 gem 'remotipart', '~> 1.2'
+gem 'simple_captcha2', require: 'simple_captcha'
 
 group :development, :test do
   gem 'pry'

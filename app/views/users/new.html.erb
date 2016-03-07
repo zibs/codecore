@@ -7,6 +7,7 @@
     <%= f.input :email, placeholder: 'user@domain.com' %>
     <%= f.input :password %>
     <%= f.input :password_confirmation, hint: 'Same as password' %>
-    <%= f.button :submit %>
+    <%= f.simple_captcha %>
+    <%= f.button :submit, class: "btn btn-profile" %>
   <% end %>
 </div>
