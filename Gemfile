@@ -47,6 +47,7 @@ end
 
 
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 gem 'cancancan'
 gem 'friendly_id', '~> 5.1.0'
 gem 'delayed_job_active_record'
