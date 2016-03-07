@@ -265,11 +265,12 @@ footer-col{
 }
 html, body {
   height: 100%;
+  min-height: 100%;
 }
 .page-wrap {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -142px;
+  margin-bottom: 10px;
 }
 .page-wrap:after {
   content: "";
@@ -280,5 +281,16 @@ html, body {
   height: 50px;
 }
 .site-footer {
+  // position: fixed;
+  width: 100%;
+  display: block;
+  // bottom: 0;
+  height: 60px;
   background: #f8f8f8;
+  border: #e7e7e7 1px solid;
+}
+
+#body-header{
+  min-height: 100%;
+  // margin-bottom: 60px;
 }
