@@ -8,6 +8,7 @@
 .hidden {
   // display: none;
 }
+
 .profile-picture-show {
   float: left;
 }
@@ -42,4 +43,19 @@ ul.nav.nav-pills {
   li {
     margin: 25px 45px;
   }
+
+}
+
+.btn-profile {
+margin-left: 5px;
+margin-right: 5px;
+margin-top: 5px;
+width: 350px;
+background-color: #cb0d0f;
+border: none;
+padding: 10px;
+opacity: 0.8;
+    &:hover {
+      background-color: #840404;
+    }
 }
