@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-10 col-md-offset-1 col-sm-6 col-xs-12">
       <%= image_tag(@user.image.url(:medium), class: "img-responsive profile-picture-show") %>
-      <h1><%= @user.full_name %></h1>
+      <h1 class ="users-name-show"><%= @user.full_name %></h1>
       <div class="row">
         <div class="user-description col-md-6 col-sm-6 col-xs-12">
           <%= @user.description %>
@@ -21,6 +21,9 @@
             <% if can? :manage, @user %>
             <%= link_to "Edit", edit_user_path(@user), class: "btn btn-default" %>
             <% end %>
+            <% if @user.available %>
+                <p class = "user-avail text-muted"><%= fa_icon("check") %> available for work</p>
+            <% end  %>
           </div>
         </div>
         <!-- end inner row -->
