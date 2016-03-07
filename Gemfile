@@ -61,13 +61,13 @@ gem 'fog'
 gem 'bootstrap-sass'
 gem 'remotipart', '~> 1.2'
 gem 'simple_captcha2', require: 'simple_captcha'
+gem 'faker'
 
 group :development, :test do
   gem 'pry'
   gem 'rspec-rails', '~> 3.4.2'
   gem 'factory_girl_rails'
   gem 'guard-rspec', require: false
-  gem 'faker'
   gem 'letter_opener'
   gem 'capybara'
 end
