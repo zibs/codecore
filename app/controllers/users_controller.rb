@@ -8,15 +8,20 @@ class UsersController < ApplicationController
   end
 
   def create
+
     @user = User.new(user_params)
-    if @user.save && simple_captcha_valid?
-      # sign_in(@user)
-      UsersMailer.notify_user_on_signup(@user).deliver_later
-      redirect_to root_path, flash: { success:  "Account created. Login access
-                                          granted after validation by admin." }
+    if simple_captcha_valid?
+      if @user.save
+        # sign_in(@user)
+        UsersMailer.notify_user_on_signup(@user).deliver_later
+        redirect_to root_path, flash: { success:  "Account created. Login access
+                                            granted after validation by admin." }
+      else
+        flash[:danger] = "User not created"
+        render :new
+      end
     else
-      flash[:danger] = "User not created"
-      render :new
+      render :new, alert: "Try again."
     end
   end
 
