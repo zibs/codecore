@@ -1,11 +1,11 @@
 <section class="col-md-8 col-md-offset-2">
 <li class = "user-skill" id="<%= dom_id(skill) %>">
   <div class="container">
-    <p><strong><%= skill.title %></strong>: </p>
-  <div class="progress">
-    <div class="progress-bar <%= set_bootstrap_color %> progress-bar-striped active" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="10" style="width:<%= skill.level * 10 %>%"><%= skill.level %> / 10
+    <p class='col-md-2' style=''><strong><%= skill.title %></strong>: </p>
+    <div class="progress">
+      <div class="progress-bar <%= set_bootstrap_color %> progress-bar-striped active" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="10" style="width:<%= skill.level * 10 %>%"><%= skill.level %> / 10
+      </div>
     </div>
-  </div>
 </div>
 </li>
 </section>
