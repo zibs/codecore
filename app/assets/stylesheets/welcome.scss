@@ -161,6 +161,40 @@ body {
  #social-yt:hover {
      color: #bb0000;
  }
+
+// site-footer fontawesome
+
+#footer_social-fb:hover {
+    color: white;
+}
+#footer_social-tw:hover {
+    color: white;
+}
+#footer_social-li:hover {
+    color: white;
+}
+#footer_social-ig:hover {
+    color: white;
+}
+#footer_social-gh:hover {
+    color: white;
+}
+
+#footer_social-fb {
+    color: #707070;
+}
+#footer_social-tw {
+    color: #707070;
+}
+#footer_social-li {
+    color: #707070;
+}
+#footer_social-ig {
+    color: #707070;
+}
+#footer_social-gh {
+    color: #707070;
+}
 // footer style
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
@@ -286,8 +320,12 @@ html, body {
   display: block;
   // bottom: 0;
   height: 60px;
-  background: #f8f8f8;
-  border: #e7e7e7 1px solid;
+  background: #2A2A2A;
+  border: #2A2A2A 1px solid;
+  text-align: right;
+  padding-right: 10px;
+  color: #707070;
+  padding-top: 5px;
 }
 
 #body-header{
