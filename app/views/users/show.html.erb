@@ -16,7 +16,7 @@
         </div>
         <div class="row">
           <div class="col-md-6 user-contact-edit">
-            <%= link_to fa_icon("download"), user_path(@user) %>
+            <%= link_to fa_icon("download"), @user.resume.url %>
             <%= link_to "Contact", new_user_contact_path(@user), class: "btn btn-default" %>
             <% if can? :manage, @user %>
             <%= link_to "Edit", edit_user_path(@user), class: "btn btn-default" %>
