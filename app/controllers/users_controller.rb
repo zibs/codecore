@@ -25,7 +25,6 @@ class UsersController < ApplicationController
     @projects = @user.projects
     @educations = @user.educations
     @experiences = @user.experiences
-
   end
 
   def index
@@ -95,7 +94,7 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   end
 
   def authorize_user

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  
+  extend FriendlyId
+  friendly_id :full_name, use: [:slugged, :history]
 
   has_many :projects, dependent: :destroy
   has_many :experiences, dependent: :destroy
