@@ -8,18 +8,21 @@ body {
 
 
 .bgimage {
-background-image: image-url('welcome_bg_resized.JPG');
-background-repeat: no-repeat;
-background-size: 100%;
-z-index: 0;
-  h1{
-    margin-top: 0;
-  }
+  background-image: image-url('welcome_bg_resized.JPG');
+  background-repeat: repeat;
+  background-size: 100%;
+  height:90vh;
+  z-index: 0;
+    h1{
+      margin-top: 0;
+    }
+
+  background-size: auto 100%;
 }
 
 .bgimage-inside {
-  padding-top: 68.34%; /* this is actually (911/1333)*100 */
-  z-index: 0;
+  // padding-top: 68.34%; /* this is actually (911/1333)*100 */
+  // z-index: 0;
 }
 
 .row-override {
@@ -56,4 +59,27 @@ opacity: 0.8;
     // width:100%;
     height:100%;
   }
+}
+
+#landing-navbar{
+  background-color: transparent;
+  border:none;
+
+  a{
+    font-size: 16px;
+    color:grey;
+  }
+
+  a:hover{
+    color: white;
+  }
+}
+
+#layer {
+    background-color: rgba(0,0,0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:90vh;
+    width: 100%;
 }
