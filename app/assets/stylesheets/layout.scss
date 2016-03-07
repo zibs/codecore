@@ -1,0 +1,43 @@
+.navbar.navbar-default{
+  background-color: #CA0C0E;
+  border-color:#CA0C0E;
+  border-radius: 0;
+
+  .navbar-nav a{
+    color:#e5e5e5;
+    &:hover{
+      color:white;
+    }
+  }
+}
+
+.slideUp{
+	animation-name: slideUp;
+	-webkit-animation-name: slideUp;
+
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease;
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;
+}
+
+@keyframes slideUp {
+	0% {
+		transform: translateY(100%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+@-webkit-keyframes slideUp {
+	0% {
+		-webkit-transform: translateY(100%);
+	}
+	100% {
+		-webkit-transform: translateY(0%);
+	}
+}
